@@ -3,11 +3,10 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from dotenv import load_dotenv
 import datetime
+
 load_dotenv()
-from langchain.agents import create_agent
-from pydantic import BaseModel, Field
-from schema import AnswerQuestion, RevisedAnswer
-from langchain_core.output_parsers import PydanticOutputParser
+
+from schema import AnswerQuestion
 
 
 actor_prompt_template = ChatPromptTemplate.from_messages([
@@ -31,28 +30,22 @@ first_responder_prompt_template = actor_prompt_template.partial(
     first_instruction="Provide detailed ~200 words answer."
 )
 
-# Parser for the structured output
-# parser = PydanticOutputParser(pydantic_object=AnswerQuestion) # in case where directly parse by llm raw text
-
-
-structured_llm = llm.with_structured_output(AnswerQuestion)
-first_reponseder_chain = first_responder_prompt_template | structured_llm
+first_responder_llm = llm.bind_tools(
+    [AnswerQuestion],
+    tool_choice="required",
+)
+first_reponseder_chain = first_responder_prompt_template | first_responder_llm
 
 revise_iinstruction = """
 Now, based on the reflection and search queries, revise your answer to improve it. Provide a more detailed and accurate response. Also, provide a critique of your revised answer and list 1-3 search queries separately that you would use to further improve your answer. Finally, include a list of citations used in the revised answer.
 """
-
-
-
-# revised_structured_llm = llm.with_structured_output(RevisedAnswer)
-
 revisor_chain = actor_prompt_template.partial(
     first_instruction=revise_iinstruction
-) | llm.with_structured_output(RevisedAnswer)
+) | llm
  
  
 
 # Response with call 
-response = first_reponseder_chain.invoke({"messages": [("user", "Write me a blog post on how to write a blog post as a software engineer to seem like good SE having depth knowledge of System Design etc?")]})
+# response = first_reponseder_chain.invoke({"messages": [("user", "Write me a blog post on how to write a blog post as a software engineer to seem like good SE having depth knowledge of System Design etc?")]})
 
-print(response)
+# print(response)
