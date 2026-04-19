@@ -24,7 +24,6 @@ graph.add_node(
     lambda state: {"messages": [revisor_chain.invoke({"messages": state["messages"]})]},
 )
 
-
 # Entry point
 graph.set_entry_point(DRAFT)
 

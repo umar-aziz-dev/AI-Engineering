@@ -4,9 +4,10 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from dotenv import load_dotenv
 import datetime
 
+
 load_dotenv()
 
-from schema import AnswerQuestion
+from schema import AnswerQuestion, RevisedAnswer
 
 
 actor_prompt_template = ChatPromptTemplate.from_messages([
@@ -32,16 +33,24 @@ first_responder_prompt_template = actor_prompt_template.partial(
 
 first_responder_llm = llm.bind_tools(
     [AnswerQuestion],
-    tool_choice="required",
+    tool_choice="AnswerQuestion",
 )
+
+# TODO: Validator of parser
+
 first_reponseder_chain = first_responder_prompt_template | first_responder_llm
 
-revise_iinstruction = """
+revise_instruction = """
 Now, based on the reflection and search queries, revise your answer to improve it. Provide a more detailed and accurate response. Also, provide a critique of your revised answer and list 1-3 search queries separately that you would use to further improve your answer. Finally, include a list of citations used in the revised answer.
 """
+
+revision_llm = llm.bind_tools(
+    [RevisedAnswer],
+    tool_choice="RevisedAnswer",
+)
 revisor_chain = actor_prompt_template.partial(
-    first_instruction=revise_iinstruction
-) | llm
+    first_instruction=revise_instruction
+) | revision_llm
  
  
 
