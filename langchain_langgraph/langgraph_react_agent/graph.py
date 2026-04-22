@@ -3,10 +3,11 @@
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_tavily import TavilySearch
-
-from langchain_langgraph._reflexion_agent_system import tool
-from langchain_langgraph.langgraph_react_agent.schema import GraphState
-
+from dotenv import load_dotenv
+load_dotenv()
+from langchain.tools import tool
+from schema import GraphState
+import json
 from langgraph.graph import StateGraph, END
 
 
@@ -24,33 +25,41 @@ def get_system_time()-> str:
 
 
  
+tools = [get_system_time, search_tool]
+
 tools_dict = {
-    "TavilySearch": search_tool,
-    "get_system_time": get_system_time
+    tool.name: tool
+    for tool in tools
 }
-def agent_node(state: GraphState):
+
+llm_with_tools = llm.bind_tools([get_system_time, search_tool], tool_choice="auto")
+
+def agent_node(state):
+    step = state.get("step_count", 0) + 1
     response = llm.invoke(state["messages"])
 
     return {
         "messages": [response],
-        "tool_calls": response.tool_calls if hasattr(response, "tool_calls") else None
+        "tool_calls": response.tool_calls or [],
+        "step_count": step
     }
-def should_continue(state: GraphState):
-    
-    # Complete control logic
-    
+
+def should_continue(state):
+    if state["step_count"] > 5:
+        return "end"
+
     last_msg = state["messages"][-1]
 
-    if hasattr(last_msg, "tool_calls") and last_msg.tool_calls:
+    if last_msg.tool_calls:
         return "tools"
 
     return "end"
 
 
-
 def tool_node(state: GraphState):
     tool_calls = state.get("tool_calls", [])
     results = []
+    tool_messages = []
 
     for call in tool_calls:
         tool_name = call["name"]
@@ -58,9 +67,18 @@ def tool_node(state: GraphState):
 
         result = tools_dict[tool_name].invoke(args)
         results.append(result)
+        
+        tool_messages.append(
+            ToolMessage(
+                content=str(result),
+                tool_call_id=call["id"],
+                name=tool_name,
+            )
+        )
 
     return {
-        "messages": [ToolMessage(content=str(results))],
+        "messages": tool_messages,
+        "tool_calls": [],
         "tool_results": results
     }
     
@@ -83,9 +101,30 @@ builder.add_conditional_edges(
 )
 
 builder.add_edge("tools", "agent")
-
 graph = builder.compile()
-
 response = graph.invoke({
-    "messages": [HumanMessage(content="What is LangGraph?")]
+    "messages": [HumanMessage(content="What is the current system time and search for latest news on AI?")]
 })
+
+print(response)
+
+# Write response to a file
+with open("response.txt", "w") as f:
+    f.write(json.dumps(response["messages"][-1].content, indent=4))
+    
+# Full resonse json in file response.json
+import json
+
+
+def to_json_safe(obj):
+    if isinstance(obj, (AIMessage, HumanMessage, ToolMessage)):
+        return obj.model_dump()
+    if isinstance(obj, dict):
+        return {key: to_json_safe(value) for key, value in obj.items()}
+    if isinstance(obj, list):
+        return [to_json_safe(item) for item in obj]
+    return obj
+
+
+with open("response.json", "w") as f:
+    json.dump(to_json_safe(response), f, indent=4)

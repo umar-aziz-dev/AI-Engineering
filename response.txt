@@ -1,0 +1,9 @@
+[
+    {
+        "type": "text",
+        "text": "The current system time is 2026-04-22T16:37:46.599907.\n\nHere's some of the latest news on AI:\n*   The AI trade is reportedly \"back on\", pushing stocks to new highs.\n*   AI is being used to elevate people, products, and decision-making, particularly in the insurance sector, with an estimated potential to unlock $50 to $70 billion in annual revenue for the industry.\n*   A newspaper company, McClatchy Media, is allegedly putting human bylines on AI-generated articles unless contractually prevented from doing so.\n*   EQT has launched a dedicated AI Infrastructure strategy to invest in the physical backbone required to support the rapid expansion of artificial intelligence.\n*   A city-run news site in San Diego is increasingly appearing higher in Google AI search results compared to traditional local news outlets.",
+        "extras": {
+            "signature": "CpMFAQw51scKgrjEkufsVQEmvkdlBoxo1F9foBPTYl6S7/FOFRy5zVmYuAYNqbyjopcpPc7a2IW2UbNXzhzhjnX17TBRdQlofKuOzbVaq51KGyDxwnuRcLkL+iKS/kGLqmCKEqQaPVIMdEG/EVGUPXirXqgjuvYc3NR+BdfZ4Rn07mmtR3mF9CA7WLWfI5+GKS4vpx3McliOOjl7DOUe1jW416gVpJZvdMtStedpRTqdDyx410PNNHrI2GfuEhhjhS1OIB710ATWengA1v768+/hY5CZTxk/P01CUsSG9DpBSzmYJ8cPBDFYb92V4lfI1u2Z0V9N2XeIb0IwFFoJlbIS1eC4JkawboetQtEkWLEdIRnNeyLAKUrDoI1TqyZVKoOpQ1cgVZFHHj9yUuF7WZ1bYJl5iOlxHfgEWHjHL2Ol+SFdX4px4Xg1cSPmltb0AxHJ/D2aP+OTUZhkXarN97NjTe6KYftM/dn3UvfVqM947IjxigSgwWWQe10F+JNnIz0OVMkYUIotutElfCKOEJGqtDn7kv0dh7xHvf5CjbEAciGk176mcwYZiPM3/JCSMdN/ZvB3EyOE0CNb9vwWCJ7DZYKOk9F8EfuK0+Of30CLy+ZDy664ZUmHukx2TB/HDXItqtqfaMU9CI0xzBzjCm1xr+w6fZrLqO7pa5QMaHWj0zYbJJ1CSbTCg4jPBheM7PqIh3QBgohGgVPTkbtGl0GOvO1ekaefzFTfdZCbJCfFMsPfIuOjocDw9e7i66YfRdL6XfKr+lYjIxP4YmWhV8Jz0Du7i59dEK4jWfZieV3BER+/g6cWTs8tZiJSrtW7RlglJcRwRKQWnyg6DfvD82xZJhweQSpviIQgYeelJpGBR0aRqZ8="
+        }
+    }
+]

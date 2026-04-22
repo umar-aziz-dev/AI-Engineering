@@ -16,6 +16,3 @@ class SearchOutput(BaseModel):
     city:str = Field(description="City name")
     temperature: float = Field(description="Temperature in Celsius")
     
-
-llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.9, max_tokens=None)
-

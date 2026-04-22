@@ -27,4 +27,4 @@ def execute_tools(state: dict) -> List[BaseMessage]:
                 tool_call_id=call_id,
                 content=json.dumps(query_results),
             ))
-    return tool_messages
+    return {"messages": tool_messages}

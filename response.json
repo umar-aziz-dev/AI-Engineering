@@ -1,0 +1,173 @@
+{
+    "messages": [
+        {
+            "content": "What is the current system time and search for latest news on AI?",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "f5413abe-208e-4bea-a9e3-5d6d51a761a6"
+        },
+        {
+            "content": "",
+            "additional_kwargs": {
+                "function_call": {
+                    "name": "tavily_search",
+                    "arguments": "{\"time_range\": \"day\", \"topic\": \"news\", \"query\": \"AI news\"}"
+                },
+                "__gemini_function_call_thought_signatures__": {
+                    "448e78d3-df4a-4a7c-b622-b9f994bd2065": "CvgCAQw51sdtoI4S42kKWxb/Y471FJPOq8HdEIBb02jABQykw0bMwuZDdn124rf+lQmmb/ZMPb0CoMQlOVariKzinGMP5fmOBRqy+zuSE4UWijdBBKItgfKzwBFvhedecDj45+lLyPfVNmhj/RG74Xyt0zKRpJ64Q4qObf96KcbM9apRD40GpxzOvxDeBOG11MQJqxTKvN2VbxqckqmwMUkqJScbJvGwY+Q0yXLzau4W5h/nSBSxEybvl4zFiZcLkS17vwy9Ljg4Jp1PO/R5NcZconBxGeGEHoLRmXqsszHB5e0fdi6bu/ZNvNVGTLPTL+gyO1zCVvSMqu3/G2SPFJt7cHvCUA9ALlu6d9K0ixmWnuMR46PyxadT6jsE1vknYQtT51TgUlHFb2aNfyM0mP86WiMUSc9V1KvVjZj++ucOBF2FyhKuvHSYkiuJJuqoPbp7dKC1s2iPucJ/X7VwMXrhNKnI45lCxYvTptVozjKJMMYO2KLy0FDVLw=="
+                }
+            },
+            "response_metadata": {
+                "finish_reason": "STOP",
+                "model_name": "gemini-2.5-flash",
+                "safety_ratings": [],
+                "model_provider": "google_genai"
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019db4fb-5648-7c41-871a-e9528e6e2300-0",
+            "tool_calls": [
+                {
+                    "name": "get_system_time",
+                    "args": {},
+                    "id": "448e78d3-df4a-4a7c-b622-b9f994bd2065",
+                    "type": "tool_call"
+                },
+                {
+                    "name": "tavily_search",
+                    "args": {
+                        "time_range": "day",
+                        "topic": "news",
+                        "query": "AI news"
+                    },
+                    "id": "e93b81af-a18c-47d1-8d71-5fdbc9778c0e",
+                    "type": "tool_call"
+                }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+                "input_tokens": 1480,
+                "output_tokens": 145,
+                "total_tokens": 1625,
+                "input_token_details": {
+                    "cache_read": 0
+                },
+                "output_token_details": {
+                    "reasoning": 103
+                }
+            }
+        },
+        {
+            "content": "2026-04-22T16:37:46.599907",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "get_system_time",
+            "id": "3e1ae5e0-7da0-49c2-8c53-2a7f6845f661",
+            "tool_call_id": "448e78d3-df4a-4a7c-b622-b9f994bd2065",
+            "artifact": null,
+            "status": "success"
+        },
+        {
+            "content": "{'query': 'AI news', 'follow_up_questions': None, 'answer': None, 'images': [], 'results': [{'url': 'https://www.axios.com/2026/04/22/ai-anthropic-stocks-iran', 'title': 'The AI trade is back on - Axios', 'score': 0.5071046, 'published_date': 'Wed, 22 Apr 2026 11:00:05 GMT', 'content': 'After a choppy start to the year, the AI trade is back,\\xa0pushing stocks to new highs. * 66% of AI stocks on the S&P 500 have outperformed since the launch, per JPMorgan\\'s analysis \u2014 evidence of improving models and AI services, coming as Anthropic\\'s revenue run rate has tripled and OpenAI\\'s new model is also expected to be better. * Investors are ignoring all that, noted Kyla Scanlon, an economics commentator, in a New York Times op-ed headlined \"Why the stock market makes no sense right now.\". **Zoom out:** The stock market\\'s positive moves off an Anthropic release are the reverse of what happened earlier this year, when each new announcement from the company seemed to send stock prices down across a different industry. * While Anthropic and OpenAI say that they\\'re just trying to be candid about the risks of AI, others see their actions as marketing.', 'raw_content': None}, {'url': 'https://insurancenewsnet.com/innarticle/using-ai-to-elevate-people-products-and-decisioning', 'title': 'Using AI to elevate people, products and decisioning - InsuranceNewsNet', 'score': 0.50432175, 'published_date': 'Tue, 21 Apr 2026 14:48:51 GMT', 'content': '# Using AI to elevate people, products and decisioning - Insurance News | InsuranceNewsNet. # Using AI to elevate people, products and decisioning. Given insurance\u2019s reliance on complex data and risk assessment, adopting agentic AI should be a top priority for any industry player serious about long-term success. *   **Self-service tools and knowledge bases:** AI-powered tools enable scalable self-service for customers, employees and partners, creating a \u201cfreemium\u201d model in which foundational knowledge is broadly accessible and further enhanced in higher-value interactions. As AI reshapes product capabilities, it is transforming how knowledge is captured, workflows are executed, and decisions are made. Given its reliance on benchmarks and repeatable scenarios, insurance is primed to expand the use of autonomous decisioning across straight-through processing, damage estimation, and scalable underwriting. McKinsey estimates that generative AI could unlock $50 to $70 billion in annual revenue for the insurance industry. ## Life Insurance News. *   AI and life insurance: Fast today, unpredictable tomorrow.', 'raw_content': None}, {'url': 'https://gizmodo.com/newspaper-company-allegedly-puts-humans-bylines-on-ai-articles-unless-contractually-prevented-from-doing-so-2000749344', 'title': \"Newspaper Company Allegedly Puts Humans' Bylines on AI Articles Unless Contractually Prevented from Doing So - Gizmodo\", 'score': 0.45667687, 'published_date': 'Wed, 22 Apr 2026 09:30:31 GMT', 'content': 'You\u2019re reading a blog post by Mike Pearl based on a news report about AI-generated news articles by Corbin Bolies of TheWrap. While my hyperlink to his work is obligatory and standard, if Bolies is like most writers, it would probably irk him a great deal if the byline of this article said \u201cReporting by Corbin Bolies with Mike Pearl\u2019s assistance.\u201d. According to Bolies and TheWrap, a new piece of Claude-based AI tech is getting rolled out in the newsrooms of the McClatchy Media family of newspapers, and some journalists are being forced to take partial bylines, even when an AI system \u201cwrote\u201d their article. Story produced with AI assistance.\u201d The unionized Miami Herald\u2019s CSA bylines use the format \u201cproduced using AI based on original work by [author redacted],\u201d which uses the author\u2019s name, but doesn\u2019t sound like they sought \u201cAI assistance.\u201d.', 'raw_content': None}, {'url': 'https://www.privateequitywire.co.uk/eqt-launches-ai-infrastructure-strategy/', 'title': 'EQT launches AI infrastructure strategy - Private Equity Wire', 'score': 0.3924305, 'published_date': 'Wed, 22 Apr 2026 08:53:34 GMT', 'content': '## FORWARD FEATURES CALENDAR. ## NEWSLETTER. Sign up to our free newsletter. ## SIGN UP NOW. ***EQT has unveiled a dedicated AI Infrastructure strategy aimed at investing in the physical backbone required to support the rapid expansion of artificial intelligence, as demand for data processing and energy-intensive computing continues to accelerate globally.***. Vesely said the scale of AI adoption is increasingly making infrastructure the central constraint on growth, requiring closer alignment between energy systems, data centres and chip ecosystems. Since EQT acquired the business in 2020, EdgeConneX has expanded its capacity significantly and is targeting the development of more than 10 gigawatts of additional data centre capacity in the coming years. **Sign up to our free newsletter**. ## FEATURED. ## EQT secures record $15.6bn for Asia buyout fund. ### CVC and GTCR make joint take-private bid for Teleflex. ### PE-backed Kpler launches minority stake sale at $5bn valuation. ### SEC flags \u201cemerging pressures\u201d in private credit market.', 'raw_content': None}, {'url': 'https://www.axios.com/local/san-diego/2026/04/21/google-ai-search-san-diego-insidesd-city-news-ranking-bias-media-decline', 'title': \"San Diego's site rises in Google AI results over local news - Axios\", 'score': 0.36731625, 'published_date': 'Tue, 21 Apr 2026 13:15:06 GMT', 'content': '# Google AI search boosts city of San Diego\\'s news narrative. A city-run news site is gobbling up Google results for San Diego and pushing out traditional media links thanks to AI-powered search. **Why it matters:** As Google shifts to AI-first search, links to that city news site regularly show up at the top of results. **How it works:** The city\\'s official news website, Inside San Diego, posts updates on the budget, trash fees, affordable housing developments and anything else happening in the city. * If someone searches \"San Diego budget proposal 2026,\" Google provides an AI overview of the budget. * An Inside San Diego link shows up as the first reference, above actual news outlets. **Case in point:** When controversy erupted over the so-called \"H Barracks\" homeless shelter in Point Loma, the city decided to write a post, San Diego spokesperson Nicole Darling told Axios. Get a free daily digest of the most important news in your backyard with Axios San Diego.', 'raw_content': None}], 'response_time': 0.38, 'request_id': '82dc584d-a4f4-4ff5-9449-545cd480f40e'}",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "tavily_search",
+            "id": "7026619d-bb10-4f3b-aed3-387706848349",
+            "tool_call_id": "e93b81af-a18c-47d1-8d71-5fdbc9778c0e",
+            "artifact": null,
+            "status": "success"
+        },
+        {
+            "content": [
+                {
+                    "type": "text",
+                    "text": "The current system time is 2026-04-22T16:37:46.599907.\n\nHere's some of the latest news on AI:\n*   The AI trade is reportedly \"back on\", pushing stocks to new highs.\n*   AI is being used to elevate people, products, and decision-making, particularly in the insurance sector, with an estimated potential to unlock $50 to $70 billion in annual revenue for the industry.\n*   A newspaper company, McClatchy Media, is allegedly putting human bylines on AI-generated articles unless contractually prevented from doing so.\n*   EQT has launched a dedicated AI Infrastructure strategy to invest in the physical backbone required to support the rapid expansion of artificial intelligence.\n*   A city-run news site in San Diego is increasingly appearing higher in Google AI search results compared to traditional local news outlets.",
+                    "extras": {
+                        "signature": "CpMFAQw51scKgrjEkufsVQEmvkdlBoxo1F9foBPTYl6S7/FOFRy5zVmYuAYNqbyjopcpPc7a2IW2UbNXzhzhjnX17TBRdQlofKuOzbVaq51KGyDxwnuRcLkL+iKS/kGLqmCKEqQaPVIMdEG/EVGUPXirXqgjuvYc3NR+BdfZ4Rn07mmtR3mF9CA7WLWfI5+GKS4vpx3McliOOjl7DOUe1jW416gVpJZvdMtStedpRTqdDyx410PNNHrI2GfuEhhjhS1OIB710ATWengA1v768+/hY5CZTxk/P01CUsSG9DpBSzmYJ8cPBDFYb92V4lfI1u2Z0V9N2XeIb0IwFFoJlbIS1eC4JkawboetQtEkWLEdIRnNeyLAKUrDoI1TqyZVKoOpQ1cgVZFHHj9yUuF7WZ1bYJl5iOlxHfgEWHjHL2Ol+SFdX4px4Xg1cSPmltb0AxHJ/D2aP+OTUZhkXarN97NjTe6KYftM/dn3UvfVqM947IjxigSgwWWQe10F+JNnIz0OVMkYUIotutElfCKOEJGqtDn7kv0dh7xHvf5CjbEAciGk176mcwYZiPM3/JCSMdN/ZvB3EyOE0CNb9vwWCJ7DZYKOk9F8EfuK0+Of30CLy+ZDy664ZUmHukx2TB/HDXItqtqfaMU9CI0xzBzjCm1xr+w6fZrLqO7pa5QMaHWj0zYbJJ1CSbTCg4jPBheM7PqIh3QBgohGgVPTkbtGl0GOvO1ekaefzFTfdZCbJCfFMsPfIuOjocDw9e7i66YfRdL6XfKr+lYjIxP4YmWhV8Jz0Du7i59dEK4jWfZieV3BER+/g6cWTs8tZiJSrtW7RlglJcRwRKQWnyg6DfvD82xZJhweQSpviIQgYeelJpGBR0aRqZ8="
+                    }
+                }
+            ],
+            "additional_kwargs": {},
+            "response_metadata": {
+                "finish_reason": "STOP",
+                "model_name": "gemini-2.5-flash",
+                "safety_ratings": [],
+                "model_provider": "google_genai"
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--019db4fb-6687-7f52-81b3-f5736b0ec4df-0",
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+                "input_tokens": 3321,
+                "output_tokens": 361,
+                "total_tokens": 3682,
+                "input_token_details": {
+                    "cache_read": 0
+                },
+                "output_token_details": {
+                    "reasoning": 166
+                }
+            }
+        }
+    ],
+    "tool_calls": [],
+    "tool_results": [
+        "2026-04-22T16:37:46.599907",
+        {
+            "query": "AI news",
+            "follow_up_questions": null,
+            "answer": null,
+            "images": [],
+            "results": [
+                {
+                    "url": "https://www.axios.com/2026/04/22/ai-anthropic-stocks-iran",
+                    "title": "The AI trade is back on - Axios",
+                    "score": 0.5071046,
+                    "published_date": "Wed, 22 Apr 2026 11:00:05 GMT",
+                    "content": "After a choppy start to the year, the AI trade is back,\u00a0pushing stocks to new highs. * 66% of AI stocks on the S&P 500 have outperformed since the launch, per JPMorgan's analysis \u2014 evidence of improving models and AI services, coming as Anthropic's revenue run rate has tripled and OpenAI's new model is also expected to be better. * Investors are ignoring all that, noted Kyla Scanlon, an economics commentator, in a New York Times op-ed headlined \"Why the stock market makes no sense right now.\". **Zoom out:** The stock market's positive moves off an Anthropic release are the reverse of what happened earlier this year, when each new announcement from the company seemed to send stock prices down across a different industry. * While Anthropic and OpenAI say that they're just trying to be candid about the risks of AI, others see their actions as marketing.",
+                    "raw_content": null
+                },
+                {
+                    "url": "https://insurancenewsnet.com/innarticle/using-ai-to-elevate-people-products-and-decisioning",
+                    "title": "Using AI to elevate people, products and decisioning - InsuranceNewsNet",
+                    "score": 0.50432175,
+                    "published_date": "Tue, 21 Apr 2026 14:48:51 GMT",
+                    "content": "# Using AI to elevate people, products and decisioning - Insurance News | InsuranceNewsNet. # Using AI to elevate people, products and decisioning. Given insurance\u2019s reliance on complex data and risk assessment, adopting agentic AI should be a top priority for any industry player serious about long-term success. *   **Self-service tools and knowledge bases:** AI-powered tools enable scalable self-service for customers, employees and partners, creating a \u201cfreemium\u201d model in which foundational knowledge is broadly accessible and further enhanced in higher-value interactions. As AI reshapes product capabilities, it is transforming how knowledge is captured, workflows are executed, and decisions are made. Given its reliance on benchmarks and repeatable scenarios, insurance is primed to expand the use of autonomous decisioning across straight-through processing, damage estimation, and scalable underwriting. McKinsey estimates that generative AI could unlock $50 to $70 billion in annual revenue for the insurance industry. ## Life Insurance News. *   AI and life insurance: Fast today, unpredictable tomorrow.",
+                    "raw_content": null
+                },
+                {
+                    "url": "https://gizmodo.com/newspaper-company-allegedly-puts-humans-bylines-on-ai-articles-unless-contractually-prevented-from-doing-so-2000749344",
+                    "title": "Newspaper Company Allegedly Puts Humans' Bylines on AI Articles Unless Contractually Prevented from Doing So - Gizmodo",
+                    "score": 0.45667687,
+                    "published_date": "Wed, 22 Apr 2026 09:30:31 GMT",
+                    "content": "You\u2019re reading a blog post by Mike Pearl based on a news report about AI-generated news articles by Corbin Bolies of TheWrap. While my hyperlink to his work is obligatory and standard, if Bolies is like most writers, it would probably irk him a great deal if the byline of this article said \u201cReporting by Corbin Bolies with Mike Pearl\u2019s assistance.\u201d. According to Bolies and TheWrap, a new piece of Claude-based AI tech is getting rolled out in the newsrooms of the McClatchy Media family of newspapers, and some journalists are being forced to take partial bylines, even when an AI system \u201cwrote\u201d their article. Story produced with AI assistance.\u201d The unionized Miami Herald\u2019s CSA bylines use the format \u201cproduced using AI based on original work by [author redacted],\u201d which uses the author\u2019s name, but doesn\u2019t sound like they sought \u201cAI assistance.\u201d.",
+                    "raw_content": null
+                },
+                {
+                    "url": "https://www.privateequitywire.co.uk/eqt-launches-ai-infrastructure-strategy/",
+                    "title": "EQT launches AI infrastructure strategy - Private Equity Wire",
+                    "score": 0.3924305,
+                    "published_date": "Wed, 22 Apr 2026 08:53:34 GMT",
+                    "content": "## FORWARD FEATURES CALENDAR. ## NEWSLETTER. Sign up to our free newsletter. ## SIGN UP NOW. ***EQT has unveiled a dedicated AI Infrastructure strategy aimed at investing in the physical backbone required to support the rapid expansion of artificial intelligence, as demand for data processing and energy-intensive computing continues to accelerate globally.***. Vesely said the scale of AI adoption is increasingly making infrastructure the central constraint on growth, requiring closer alignment between energy systems, data centres and chip ecosystems. Since EQT acquired the business in 2020, EdgeConneX has expanded its capacity significantly and is targeting the development of more than 10 gigawatts of additional data centre capacity in the coming years. **Sign up to our free newsletter**. ## FEATURED. ## EQT secures record $15.6bn for Asia buyout fund. ### CVC and GTCR make joint take-private bid for Teleflex. ### PE-backed Kpler launches minority stake sale at $5bn valuation. ### SEC flags \u201cemerging pressures\u201d in private credit market.",
+                    "raw_content": null
+                },
+                {
+                    "url": "https://www.axios.com/local/san-diego/2026/04/21/google-ai-search-san-diego-insidesd-city-news-ranking-bias-media-decline",
+                    "title": "San Diego's site rises in Google AI results over local news - Axios",
+                    "score": 0.36731625,
+                    "published_date": "Tue, 21 Apr 2026 13:15:06 GMT",
+                    "content": "# Google AI search boosts city of San Diego's news narrative. A city-run news site is gobbling up Google results for San Diego and pushing out traditional media links thanks to AI-powered search. **Why it matters:** As Google shifts to AI-first search, links to that city news site regularly show up at the top of results. **How it works:** The city's official news website, Inside San Diego, posts updates on the budget, trash fees, affordable housing developments and anything else happening in the city. * If someone searches \"San Diego budget proposal 2026,\" Google provides an AI overview of the budget. * An Inside San Diego link shows up as the first reference, above actual news outlets. **Case in point:** When controversy erupted over the so-called \"H Barracks\" homeless shelter in Point Loma, the city decided to write a post, San Diego spokesperson Nicole Darling told Axios. Get a free daily digest of the most important news in your backyard with Axios San Diego.",
+                    "raw_content": null
+                }
+            ],
+            "response_time": 0.38,
+            "request_id": "82dc584d-a4f4-4ff5-9449-545cd480f40e"
+        }
+    ]
+}
