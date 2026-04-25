@@ -9,7 +9,7 @@ from typing_extensions import Type,TypedDict,Annotated
 
 # Pydantic models for input and output of tools
 class SearchOutput(BaseModel):
-    """ Search results from Tavily Search tool"""
+    """ Search results from Tavily Search tool exact json format"""
     city:str = Field(description="City name")
     temperature: float = Field(description="Temperature in Celsius")
     
@@ -43,7 +43,11 @@ result = agent.invoke({
     ]
 })
 
+content = result["messages"][-1].content
+structured_output = result["structured_response"]
+
 print(result["messages"][-1].content)
+print(structured_output)
 # result = llm.invoke("What is the capital of France?")
 
 # print(result)

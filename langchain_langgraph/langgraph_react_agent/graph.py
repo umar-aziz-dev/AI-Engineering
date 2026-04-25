@@ -3,7 +3,7 @@ import json
 import logging
 from typing import Any
 
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
+from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage, ToolMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_tavily import TavilySearch
 from dotenv import load_dotenv
@@ -140,7 +140,7 @@ graph = build_graph()
 
 
 def to_json_safe(obj: Any):
-    if isinstance(obj, (AIMessage, HumanMessage, ToolMessage)):
+    if isinstance(obj, BaseMessage):
         return obj.model_dump()
     if isinstance(obj, dict):
         return {key: to_json_safe(value) for key, value in obj.items()}
