@@ -1,12 +1,10 @@
 [project]
-name = "ai-engineering"
+name = "mcp-server"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
-
-[tool.uv.workspace]
-members = [
-    "MCP",
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.27.0",
 ]
