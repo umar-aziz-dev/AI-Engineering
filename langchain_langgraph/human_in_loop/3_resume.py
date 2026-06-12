@@ -20,6 +20,7 @@ def nodeB(state: CustomState) -> Command:
 
 def nodeC(state: CustomState) -> Command:
     print("Executing Node C")
+    # Resume the flow with human input, and then decide which node to go to based on that input
     humanResponse = interrupt("Please provide your input for Node C: D/E")
     if humanResponse.strip().upper() == "D":
         return Command(goto="nodeD", update={"value":state["value"] + "C-D"})
